@@ -34,7 +34,21 @@
   nav a{text-decoration:none; color:var(--text); font-size:0.86rem; font-weight:600; letter-spacing:0.03em; text-transform:uppercase;}
   nav a.active{border-bottom:2px solid var(--green); padding-bottom:4px;}
   .nav-cta{display:flex; align-items:center; gap:8px; background:var(--green); color:#fff; padding:12px 20px; border-radius:6px; text-decoration:none; font-weight:700; font-size:0.85rem; letter-spacing:0.03em;}
-  @media (max-width:1000px){ nav{display:none;} }
+  .hamburger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
+  .hamburger span{width:24px; height:2px; background:var(--text);}
+  @media (max-width:1000px){
+    nav{display:none;}
+    .hamburger{display:flex;}
+    .nav-cta span{display:none;}
+    .nav-cta{padding:12px 14px;}
+  }
+  .mobile-menu{display:none; position:fixed; inset:0; background:var(--paper); z-index:50; padding:20px 24px; overflow-y:auto;}
+  .mobile-menu.open{display:block;}
+  .mobile-menu-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:32px;}
+  .mobile-menu nav{display:flex; flex-direction:column; gap:0; justify-content:flex-start;}
+  .mobile-menu nav a{padding:16px 0; border-bottom:1px solid var(--line); font-size:1rem;}
+  .mobile-menu .nav-cta{display:flex; justify-content:center; margin-top:24px;}
+  .close-btn{background:none; border:none; font-size:1.6rem; line-height:1; cursor:pointer; color:var(--text);}
 
   .page-hero{background:var(--green-dark); color:#fff; padding:52px 0 40px;}
   .page-hero h1{font-size:clamp(2rem,4vw,2.7rem); font-weight:700;}
@@ -89,17 +103,40 @@
       <a href="index.html">Hem</a>
       <a href="prislista.html">Tjänster &amp; priser</a>
       <a href="#mobil">Mobil service</a>
-      <a href="#foretag">Företag &amp; kommun</a>
-      <a href="#om">Om oss</a>
-      <a href="#faq">FAQ</a>
+      <a href="index.html#kontakt">Företag &amp; kommun</a>
+      <a href="index.html#om">Om oss</a>
+      <a href="#viktigt">FAQ</a>
       <a href="index.html#kontakt">Kontakt</a>
     </nav>
     <a class="nav-cta active" href="boka.html">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#fff" stroke-width="2"/><path d="M3 10H21M8 3V7M16 3V7" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-      Boka tid
+      <span>Boka tid</span>
     </a>
+    <button class="hamburger" aria-label="Öppna meny" onclick="document.getElementById('mobileMenu').classList.add('open')">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-top">
+    <img class="badge" src="logo.png" alt="Joey's Cykelverkstad" style="width:48px; height:48px;">
+    <button class="close-btn" aria-label="Stäng meny" onclick="document.getElementById('mobileMenu').classList.remove('open')">&times;</button>
+  </div>
+  <nav>
+    <a href="index.html">Hem</a>
+    <a href="prislista.html">Tjänster &amp; priser</a>
+    <a href="#mobil" onclick="document.getElementById('mobileMenu').classList.remove('open')">Mobil service</a>
+    <a href="index.html#kontakt">Företag &amp; kommun</a>
+    <a href="index.html#om">Om oss</a>
+    <a href="#viktigt" onclick="document.getElementById('mobileMenu').classList.remove('open')">FAQ</a>
+    <a href="index.html#kontakt">Kontakt</a>
+  </nav>
+  <a class="nav-cta" href="boka.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#fff" stroke-width="2"/><path d="M3 10H21M8 3V7M16 3V7" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Boka tid</span>
+  </a>
+</div>
 
 <div class="page-hero">
   <div class="wrap">
@@ -130,7 +167,7 @@
         <a class="btn btn-primary" href="https://calendly.com/jcv-knivsta/service-pa-verkstaden" target="_blank" rel="noopener">Boka tid i verkstaden →</a>
       </div>
 
-      <div class="bcard closed" style="grid-column:1 / -1;">
+      <div class="bcard closed" id="mobil" style="grid-column:1 / -1; scroll-margin-top:24px;">
         <svg class="ic" viewBox="0 0 24 24" fill="none"><rect x="1" y="7" width="15" height="10" rx="1" stroke="currentColor" stroke-width="1.6"/><path d="M16 10H19L22 13V17H16V10Z" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="18" r="2" stroke="currentColor" stroke-width="1.6"/><circle cx="18" cy="18" r="2" stroke="currentColor" stroke-width="1.6"/></svg>
         <span class="status paused">Pausad just nu</span>
         <h3>Mobilcykelservice</h3>
@@ -144,7 +181,7 @@
   </div>
 </section>
 
-<section class="section" style="padding-top:0;">
+<section class="section" id="viktigt" style="padding-top:0; scroll-margin-top:24px;">
   <div class="wrap">
     <h2 style="font-size:1.5rem; margin-bottom:8px;">Viktigt att veta</h2>
     <p style="color:var(--muted); font-size:0.9rem; margin-bottom:8px;">Läs gärna igenom innan du bokar, så vet du vad som gäller.</p>
