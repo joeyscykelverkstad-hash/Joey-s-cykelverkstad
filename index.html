@@ -35,14 +35,28 @@
   nav a{text-decoration:none; color:var(--text); font-size:0.86rem; font-weight:600; letter-spacing:0.03em; text-transform:uppercase;}
   nav a.active{border-bottom:2px solid var(--green); padding-bottom:4px;}
   .nav-cta{display:flex; align-items:center; gap:8px; background:var(--green); color:#fff; padding:12px 20px; border-radius:6px; text-decoration:none; font-weight:700; font-size:0.85rem; letter-spacing:0.03em;}
-  @media (max-width:1000px){ nav{display:none;} }
+  .hamburger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
+  .hamburger span{width:24px; height:2px; background:var(--text);}
+  @media (max-width:1000px){
+    nav{display:none;}
+    .hamburger{display:flex;}
+    .nav-cta span{display:none;}
+    .nav-cta{padding:12px 14px;}
+  }
+  .mobile-menu{display:none; position:fixed; inset:0; background:var(--paper); z-index:50; padding:20px 24px; overflow-y:auto;}
+  .mobile-menu.open{display:block;}
+  .mobile-menu-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:32px;}
+  .mobile-menu nav{display:flex; flex-direction:column; gap:0; justify-content:flex-start;}
+  .mobile-menu nav a{padding:16px 0; border-bottom:1px solid var(--line); font-size:1rem;}
+  .mobile-menu .nav-cta{display:flex; justify-content:center; margin-top:24px;}
+  .close-btn{background:none; border:none; font-size:1.6rem; line-height:1; cursor:pointer; color:var(--text);}
 
   /* HERO */
   .hero{position:relative; color:#fff; min-height:480px; display:flex; align-items:flex-end;
-    background:linear-gradient(180deg, rgba(22,41,29,0.15) 0%, rgba(22,41,29,0.75) 85%),
-    repeating-linear-gradient(135deg, #cabb95 0 40px, #b9aa82 40px 80px);
+    background:linear-gradient(180deg, rgba(22,41,29,0.25) 0%, rgba(22,41,29,0.82) 90%),
+    url('butik-exterior.jpg');
+    background-size:cover; background-position:center 60%;
   }
-  .hero-photo-note{position:absolute; top:14px; right:14px; background:rgba(255,255,255,0.9); color:#4a4636; font-size:0.72rem; padding:5px 10px; border-radius:20px;}
   .hero-inner{position:relative; padding:64px 0 44px;}
   .hero h1{font-size:clamp(2.3rem,5vw,3.4rem); line-height:1.05; font-weight:700;}
   .hero p.lead{max-width:44ch; color:#EDEAdd; font-size:1.05rem; margin-top:14px;}
@@ -88,7 +102,8 @@
   .check-list svg{flex:none; width:16px; height:16px; color:var(--green); margin-top:3px;}
   .om-oss-text{padding:30px 28px 20px;}
   .om-oss-text p{font-size:0.9rem; color:var(--muted); margin:10px 0 18px;}
-  .om-oss-photo{aspect-ratio:16/10; background:repeating-linear-gradient(135deg,#cabb95 0 30px,#b9aa82 30px 60px); display:flex; align-items:center; justify-content:center; color:#4a4636; font-size:0.75rem; text-align:center; padding:10px;}
+  .om-oss-photo{aspect-ratio:16/10; border-radius:8px; overflow:hidden;}
+  .om-oss-photo img{width:100%; height:100%; object-fit:cover; display:block;}
 
   /* BOTTOM STRIP */
   .bottom-strip{background:var(--cream-2); padding:36px 0;}
@@ -120,21 +135,43 @@
     <nav>
       <a class="active" href="#hem">Hem</a>
       <a href="#tjanster">Tjänster &amp; priser</a>
-      <a href="#mobil">Mobil service</a>
-      <a href="#foretag">Företag &amp; kommun</a>
+      <a href="boka.html#mobil">Mobil service</a>
+      <a href="#kontakt">Företag &amp; kommun</a>
       <a href="#om">Om oss</a>
-      <a href="#faq">FAQ</a>
+      <a href="boka.html#viktigt">FAQ</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
     <a class="nav-cta" href="boka.html">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#fff" stroke-width="2"/><path d="M3 10H21M8 3V7M16 3V7" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-      Boka tid
+      <span>Boka tid</span>
     </a>
+    <button class="hamburger" aria-label="Öppna meny" onclick="document.getElementById('mobileMenu').classList.add('open')">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-top">
+    <img class="badge" src="logo.png" alt="Joey's Cykelverkstad" style="width:48px; height:48px;">
+    <button class="close-btn" aria-label="Stäng meny" onclick="document.getElementById('mobileMenu').classList.remove('open')">&times;</button>
+  </div>
+  <nav>
+    <a href="#hem" onclick="document.getElementById('mobileMenu').classList.remove('open')">Hem</a>
+    <a href="#tjanster" onclick="document.getElementById('mobileMenu').classList.remove('open')">Tjänster &amp; priser</a>
+    <a href="boka.html#mobil">Mobil service</a>
+    <a href="#kontakt" onclick="document.getElementById('mobileMenu').classList.remove('open')">Företag &amp; kommun</a>
+    <a href="#om" onclick="document.getElementById('mobileMenu').classList.remove('open')">Om oss</a>
+    <a href="boka.html#viktigt">FAQ</a>
+    <a href="#kontakt" onclick="document.getElementById('mobileMenu').classList.remove('open')">Kontakt</a>
+  </nav>
+  <a class="nav-cta" href="boka.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#fff" stroke-width="2"/><path d="M3 10H21M8 3V7M16 3V7" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Boka tid</span>
+  </a>
+</div>
+
 <section class="hero" id="hem">
-  <span class="hero-photo-note">📷 Ersätt med foto av verkstaden</span>
   <div class="wrap hero-inner">
     <h1>Cykelservice<br>i Knivsta</h1>
     <p class="lead">I verkstaden eller hos dig – noggrant och personligt.</p>
@@ -179,31 +216,31 @@
         <svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.1-3.1a4 4 0 01-5.5 5.5L5.5 21.5 2.5 18.5 12.3 8.7a4 4 0 015.5-5.5l-3.1 3.1z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
         <h3>Service &amp; reparation</h3>
         <p>Allt från punktering till kompletta servicearbeten.</p>
-        <a href="#">Läs mer →</a>
+        <a href="prislista.html">Läs mer →</a>
       </div>
       <div class="scard">
         <svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
         <h3>Elcyklar</h3>
         <p>Specialister på felsökning och service av elcyklar.</p>
-        <a href="#">Läs mer →</a>
+        <a href="prislista.html">Läs mer →</a>
       </div>
       <div class="scard">
         <svg class="ic" viewBox="0 0 24 24" fill="none"><circle cx="6" cy="17" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="18" cy="17" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M6 17L11 6h4M11 6L18 17M11 6l-2.5 6M15 6l-1.6 6H18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <h3>Vanliga cyklar</h3>
         <p>Racer, MTB, citybike och barncyklar – vi fixar det.</p>
-        <a href="#">Läs mer →</a>
+        <a href="prislista.html">Läs mer →</a>
       </div>
       <div class="scard">
         <svg class="ic" viewBox="0 0 24 24" fill="none"><rect x="1" y="7" width="15" height="10" rx="1" stroke="currentColor" stroke-width="1.6"/><path d="M16 10H19L22 13V17H16V10Z" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="18" r="2" stroke="currentColor" stroke-width="1.6"/><circle cx="18" cy="18" r="2" stroke="currentColor" stroke-width="1.6"/></svg>
         <h3>Mobil cykelservice</h3>
         <p>Vi kommer till dig – hemma, på jobbet eller i skolan.</p>
-        <a href="#">Läs mer →</a>
+        <a href="boka.html#mobil">Läs mer →</a>
       </div>
       <div class="scard">
         <svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M4 21V9l8-5 8 5v12M4 21h16M9 21v-6h6v6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
         <h3>Företag &amp; kommun</h3>
         <p>Ramavtal, service på plats och löpande underhåll.</p>
-        <a href="#">Läs mer →</a>
+        <a href="#kontakt">Läs mer →</a>
       </div>
     </div>
   </div>
@@ -215,12 +252,10 @@
       <div class="info-col">
         <h3>Populära tjänster</h3>
         <p style="font-size:0.78rem; color:#8A6A1F; background:#F0E4C8; padding:6px 10px; border-radius:6px; margin:0 0 10px;">Priserna nedan är arbetskostnad – material tillkommer.</p>
-        <div class="price-line"><span>Däck- &amp; slangbyte</span><span class="amt">250 kr</span></div>
-        <div class="price-line"><span>Kedjebyte</span><span class="amt">300 kr</span></div>
-        <div class="price-line"><span>Bromsklossbyte (fälgbroms)</span><span class="amt">250 kr</span></div>
         <div class="price-line"><span>Service, standardcykel</span><span class="amt">600–900 kr</span></div>
         <div class="price-line"><span>Service, MTB/Hybrid/Elcykel</span><span class="amt">750–1 200 kr</span></div>
         <div class="price-line"><span>Service, lådcykel</span><span class="amt">750–1 600 kr</span></div>
+        <p style="font-size:0.82rem;color:var(--muted);margin:10px 0 0;">Behöver du bara en enskild reparation, t.ex. däckbyte eller kedjebyte? Alla enskilda arbetskostnader hittar du i den fullständiga prislistan.</p>
         <p style="font-size:0.8rem;color:#6b6455;margin:0.5rem 0 0.75rem;">Materialkostnader tillkommer. Priset kan variera beroende på cykelns skick.</p>
         <a class="see-all" href="prislista.html">Se hela prislistan →</a>
       </div>
@@ -234,13 +269,13 @@
           <li><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Hos oss är du och din cykel i trygga händer</li>
         </ul>
       </div>
-      <div class="info-col">
+      <div class="info-col" id="om">
         <div class="om-oss-text">
           <h3>Om oss</h3>
           <p>Joey's Cykelverkstad finns i hjärtat av Knivsta. Vi brinner för cyklar och vill ge dig den bästa servicen – oavsett om du kommer till oss eller vill att vi kommer till dig.</p>
           <a class="btn btn-primary" href="#om" style="padding:11px 18px; font-size:0.82rem;">Läs mer om oss →</a>
         </div>
-        <div class="om-oss-photo">📷 Ersätt med foto av lokalen</div>
+        <div class="om-oss-photo"><img src="verkstad-interior.jpg" alt="Inne i Joey's Cykelverkstad"></div>
       </div>
     </div>
   </div>
