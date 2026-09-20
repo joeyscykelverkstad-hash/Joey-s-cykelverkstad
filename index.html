@@ -111,6 +111,8 @@
   .service-cards{display:grid; grid-template-columns:repeat(5,1fr); gap:16px;}
   @media (max-width:1000px){ .service-cards{grid-template-columns:repeat(3,1fr);} }
   @media (max-width:640px){ .service-cards{grid-template-columns:repeat(2,1fr);} }
+  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media (max-width:900px){ .testi-grid{grid-template-columns:1fr; max-width:480px; margin:0 auto;} }
   .scard{background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:28px 20px; text-align:center;}
   .scard .ic{width:48px; height:48px; margin:0 auto 16px; color:var(--green);}
   .scard h3{font-size:1.02rem; margin-bottom:8px;}
@@ -341,7 +343,7 @@
       <h2 style="font-size:1.8rem;">Vad våra kunder säger</h2>
       <p style="color:var(--muted); margin-top:8px;">Det här är vad våra kunder tycker om oss – 100% rekommenderar oss, finns på Google och Facebook</p>
     </div>
-    <div class="pkg-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+    <div class="testi-grid">
       <div class="scard" style="text-align:left;">
         <div style="color:#D4A72C; letter-spacing:2px; margin-bottom:10px;">★★★★★</div>
         <p style="font-size:0.9rem; color:var(--muted); font-style:italic; min-height:70px;">"Snabb och prisvärd service, och Joey tar sig alltid tid att svara på frågor med ett leende. Man märker verkligen att han brinner för cyklar."</p>
@@ -349,8 +351,8 @@
       </div>
       <div class="scard" style="text-align:left;">
         <div style="color:#D4A72C; letter-spacing:2px; margin-bottom:10px;">★★★★★</div>
-        <p style="font-size:0.9rem; color:var(--muted); font-style:italic; min-height:70px;">"Blev positivt överraskad av hur snabbt och billigt det gick, och cykeln har fungerat perfekt sedan dess. Rekommenderar starkt!"</p>
-        <p style="font-size:0.82rem; font-weight:700; margin-top:10px;">– Winston G.</p>
+        <p style="font-size:0.9rem; color:var(--muted); font-style:italic; min-height:70px;">"En av de trevligaste och duktigaste mekanikerna jag stött på. Ordnade reparationen direkt och var transparent med priset – upptäckte dessutom flera problem som missats vid en service dagen innan. Otroligt varm och hjälpsam."</p>
+        <p style="font-size:0.82rem; font-weight:700; margin-top:10px;">– Ebrahim O.</p>
       </div>
       <div class="scard" style="text-align:left;">
         <div style="color:#D4A72C; letter-spacing:2px; margin-bottom:10px;">★★★★★</div>
