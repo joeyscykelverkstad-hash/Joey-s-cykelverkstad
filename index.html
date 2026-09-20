@@ -122,6 +122,8 @@
   /* THREE COLUMN INFO */
   .info-grid{display:grid; grid-template-columns:1fr 1fr 1.1fr; gap:0; border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--paper);}
   @media (max-width:900px){ .info-grid{grid-template-columns:1fr;} }
+  .contact-grid{grid-template-columns:1fr 1.3fr;}
+  @media (max-width:900px){ .contact-grid{grid-template-columns:1fr;} }
   .info-col{padding:30px 28px; border-right:1px solid var(--line);}
   .info-col:last-child{border-right:none; padding:0;}
   @media (max-width:900px){ .info-col{border-right:none; border-bottom:1px solid var(--line);} }
@@ -369,7 +371,7 @@
 
 <section class="section" id="kontaktsektion">
   <div class="wrap">
-    <div class="info-grid" style="grid-template-columns:1fr 1.3fr;">
+    <div class="info-grid contact-grid">
       <div class="info-col">
         <h3>Kontakta oss</h3>
         <p style="font-size:0.9rem; color:var(--muted); margin:0 0 20px;">Har du frågor eller vill boka? Ring, mejla eller boka direkt online.</p>
