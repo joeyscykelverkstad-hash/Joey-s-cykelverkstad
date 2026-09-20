@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sävja Hemvård — Joey's Cykelverkstad</title>
+<meta name="description" content="Exklusiv bokningssida för anställda hos Sävja Hemvård. Boka tid för hämtning och reparation av minst två cyklar.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1F3B2C;
+    --green-dark:#16291D;
+    --cream:#FAF6EC;
+    --cream-2:#F1EBDA;
+    --paper:#FFFFFF;
+    --line:#E4DDC8;
+    --muted:#655F4E;
+    --text:#22261F;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--cream); color:var(--text); font-family:'Inter',sans-serif; font-size:15.5px; line-height:1.55;}
+  h1,h2,h3,.display{font-family:'Fraunces',serif; margin:0;}
+  a{color:inherit;}
+  .wrap{max-width:1280px; margin:0 auto; padding:0 32px;}
+  @media (max-width:640px){ .wrap{padding:0 18px;} }
+  img{max-width:100%; display:block;}
+
+  header{background:var(--paper); border-bottom:1px solid var(--line);}
+  .navbar{display:flex; align-items:center; justify-content:space-between; padding:14px 0; gap:20px;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .badge{width:64px; height:64px; object-fit:contain;}
+  nav{display:flex; gap:26px; flex:1; justify-content:center;}
+  nav a{text-decoration:none; color:var(--text); font-size:0.86rem; font-weight:600; letter-spacing:0.03em; text-transform:uppercase;}
+  .nav-cta{display:flex; align-items:center; gap:8px; background:var(--green); color:#fff; padding:12px 20px; border-radius:6px; text-decoration:none; font-weight:700; font-size:0.85rem; letter-spacing:0.03em;}
+  .hamburger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
+  .hamburger span{width:24px; height:2px; background:var(--text);}
+  @media (max-width:1000px){
+    nav{display:none;}
+    .hamburger{display:flex;}
+    .nav-cta span{display:none;}
+    .nav-cta{padding:12px 14px;}
+  }
+  .mobile-menu{display:none; position:fixed; inset:0; background:var(--paper); z-index:50; padding:20px 24px; overflow-y:auto;}
+  .mobile-menu.open{display:block;}
+  .mobile-menu-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:32px;}
+  .mobile-menu nav{display:flex; flex-direction:column; gap:0; justify-content:flex-start;}
+  .mobile-menu nav a{padding:16px 0; border-bottom:1px solid var(--line); font-size:1rem;}
+  .mobile-menu .nav-cta{display:flex; justify-content:center; margin-top:24px;}
+  .close-btn{background:none; border:none; font-size:1.6rem; line-height:1; cursor:pointer; color:var(--text);}
+
+  .page-hero{background:var(--green-dark); color:#fff; padding:52px 0 40px;}
+  .page-hero h1{font-size:clamp(2rem,4vw,2.7rem); font-weight:700;}
+  .page-hero p{max-width:62ch; color:#C9C4AE; margin-top:12px; font-size:1rem;}
+
+  .section{padding:56px 0;}
+
+  .feature-cards{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  @media (max-width:1000px){ .feature-cards{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:640px){ .feature-cards{grid-template-columns:1fr;} }
+  .fcard{background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:24px 22px;}
+  .fcard .ic{width:34px; height:34px; color:var(--green); margin-bottom:12px;}
+  .fcard h3{font-size:1.02rem; margin-bottom:8px;}
+  .fcard p{font-size:0.87rem; color:var(--muted); margin:0;}
+
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:9px; padding:13px 22px; border-radius:6px; text-decoration:none; font-weight:700; font-size:0.9rem; border:none; cursor:pointer;}
+  .btn-primary{background:var(--green); color:#fff;}
+  .btn-white{background:#fff; color:var(--green-dark);}
+  .btn-outline{background:transparent; color:var(--green-dark); border:1.5px solid var(--green-dark);}
+
+  .faq-item{border-bottom:1px solid var(--line); padding:18px 0;}
+  .faq-item h4{font-size:0.98rem; margin-bottom:8px;}
+  .faq-item p{font-size:0.88rem; color:var(--muted); margin:0;}
+
+  .contact-banner{background:var(--cream-2); border-radius:10px; padding:26px 28px; text-align:center; margin-top:8px;}
+  .contact-banner p{color:var(--muted); font-size:0.9rem; margin:0 0 16px;}
+  .contact-actions{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+
+  footer{background:var(--green-dark); color:#C9C4AE; padding:34px 0;}
+  .foot-grid{display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px; align-items:flex-start;}
+  .foot-item{display:flex; gap:10px; font-size:0.86rem; min-width:190px;}
+  .foot-item svg{flex:none; width:17px; height:17px; margin-top:2px; color:#8FA593;}
+  .foot-item strong{display:block; color:#fff; font-size:0.86rem;}
+  .socials{display:flex; gap:12px;}
+  .socials a{width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap navbar">
+    <div class="brand">
+      <img class="badge" src="logo.png" alt="Joey's Cykelverkstad">
+    </div>
+    <nav>
+      <a href="index.html">Hem</a>
+      <a href="prislista.html">Tjänster &amp; priser</a>
+      <a href="boka.html">Boka</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
+    <a class="nav-cta" href="https://calendly.com/jcv-knivsta/savja-hemvard-bokning" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#fff" stroke-width="2"/><path d="M3 10H21M8 3V7M16 3V7" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>Boka nu</span>
+    </a>
+    <button class="hamburger" aria-label="Öppna meny" onclick="document.getElementById('mobileMenu').classList.add('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-top">
+    <img class="badge" src="logo.png" alt="Joey's Cykelverkstad" style="width:48px; height:48px;">
+    <button class="close-btn" aria-label="Stäng meny" onclick="document.getElementById('mobileMenu').classList.remove('open')">&times;</button>
+  </div>
+  <nav>
+    <a href="index.html">Hem</a>
+    <a href="prislista.html">Tjänster &amp; priser</a>
+    <a href="boka.html">Boka</a>
+    <a href="index.html#kontakt">Kontakt</a>
+  </nav>
+  <a class="nav-cta" href="https://calendly.com/jcv-knivsta/savja-hemvard-bokning" target="_blank" rel="noopener">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#fff" stroke-width="2"/><path d="M3 10H21M8 3V7M16 3V7" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Boka nu</span>
+  </a>
+</div>
+
+<div class="page-hero">
+  <div class="wrap">
+    <h1>Sävja Hemvård</h1>
+    <p>Välkommen till Sävja Hemvårds exklusiva bokningssida! Här kan du som anställd hos Sävja Hemvård boka tid för minst två cyklar som ska hämtas och repareras.</p>
+    <a class="btn btn-white" href="https://calendly.com/jcv-knivsta/savja-hemvard-bokning" target="_blank" rel="noopener" style="margin-top:22px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#16291D" stroke-width="2"/><path d="M3 10H21M8 3V7M16 3V7" stroke="#16291D" stroke-width="2" stroke-linecap="round"/></svg>
+      Boka nu
+    </a>
+  </div>
+</div>
+
+<section class="section">
+  <div class="wrap">
+    <h2 style="font-size:1.5rem; margin-bottom:24px;">Det här ingår i alla jobb</h2>
+    <div class="feature-cards">
+      <div class="fcard">
+        <svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <h3>Hög kvalitet, rimlig tid</h3>
+        <p>Service av hög kvalitet inom rimliga tidsramar. Vi gör alltid en säkerhetsbedömning och ser till att cyklarna är i bästa möjliga skick.</p>
+      </div>
+      <div class="fcard">
+        <svg class="ic" viewBox="0 0 24 24" fill="none"><rect x="1" y="7" width="15" height="10" rx="1" stroke="currentColor" stroke-width="1.6"/><path d="M16 10H19L22 13V17H16V10Z" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="18" r="2" stroke="currentColor" stroke-width="1.6"/><circle cx="18" cy="18" r="2" stroke="currentColor" stroke-width="1.6"/></svg>
+        <h3>Smidig hämtning &amp; lämning</h3>
+        <p>Med verkstadens skåpbil sköter vi hela processen. Säg var vi ska hämta och lämna cyklarna, så tar vi resten.</p>
+      </div>
+      <div class="fcard">
+        <svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 6 6 9 6 13a6 6 0 0012 0c0-4-2-7-6-11z" stroke="currentColor" stroke-width="1.6"/></svg>
+        <h3>Transparens i vårt arbete</h3>
+        <p>Inga större arbeten eller beställningar görs utan samordnarens godkännande. Endast säkerhetsåtgärder utförs direkt (t.ex. byte av slitna däck, slangar eller bromsklossar).</p>
+      </div>
+      <div class="fcard">
+        <svg class="ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Pålitliga leverantörer</h3>
+        <p>Vi är återförsäljare för Cycle Europe och får därför tag på originalreservdelar till era cyklars varumärken (Crescent och Monark elcyklar).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <h2 style="font-size:1.5rem; margin-bottom:24px;">Vanliga frågor</h2>
+
+    <div class="faq-item">
+      <h4>När hämtar/levererar ni cyklarna?</h4>
+      <p>Vi åker från verkstaden i Knivsta omkring kl. 09.00 på måndagar för att hämta era cyklar, och åker likadant omkring kl. 09.00 på torsdagar för att leverera tillbaka dem – räkna med att de är hos er något efter kl. 09.00, oftast runt 09–10. Samtidigt finns möjlighet att hämta ytterligare minst två cyklar.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Vi har inte fått tillbaka en cykel efter tre arbetsdagar. Varför?</h4>
+      <p>Det kan bero på hur omfattande arbetet är och hur läget ser ut hos våra leverantörer. Vanliga jobb (däckbyte, service) levereras oftast torsdag varje vecka, men kan i undantagsfall dröja upp till en vecka.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Vad räknas som "säkerhetsåtgärder" eller "enkla jobb" som ni gör utan godkännande?</h4>
+      <p>Cyklar i Sverige måste vara utrustade med ljus, ringklocka och reflexer, samt ha bra däckmönster, för att räknas som trafiksäkra. Vi byter därför ut slitna kedjor, kassetter och liknande för att säkerställa körbart skick. Att inte följa reglerna kan ge böter upp till 1 000 kr (500 kr per saknat lyse), samt öka olycksrisken. Enkla jobb är sådant som tar mindre än en timme om vi har delarna till hands, till exempel däckbyte.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Hur ofta bör man serva en cykel?</h4>
+      <p>Vi rekommenderar minst två gånger per år, en gång på sommaren och en på vintern, för att minimera behovet av småfix och hålla kostnaderna nere vid utökad användning.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="contact-banner">
+      <h3 style="margin-bottom:10px;">Frågor eller funderingar?</h3>
+      <p>Kontakta oss gärna genom någon av våra kanaler.</p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:jcv.knivsta@gmail.com?subject=Fråga%20om%20Sävja%20Hemvård">Mejla oss →</a>
+        <a class="btn btn-outline" href="tel:+46760645006">Ring oss →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="kontakt">
+  <div class="wrap foot-grid">
+    <div class="foot-item">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8 6 6 9 6 13a6 6 0 0012 0c0-4-2-7-6-11z" stroke="currentColor" stroke-width="1.6"/></svg>
+      <div><strong>Joey's Cykelverkstad AB</strong>Häradsvägen 8A, 741 42 Knivsta</div>
+    </div>
+    <div class="foot-item">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.5 2.1L7.9 9.7a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.9.3 1.8.5 2.7.6a2 2 0 011.7 2z" stroke="currentColor" stroke-width="1.6"/></svg>
+      <div><strong>076-064 50 06</strong>(svarar oftast snabbt)</div>
+    </div>
+    <div class="foot-item">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M2 6l10 7L22 6" stroke="currentColor" stroke-width="1.6"/></svg>
+      <div><strong>joeyscykelverkstad@gmail.com</strong>Svar inom 24h</div>
+    </div>
+    <div class="foot-item">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <div><strong>Öppettider</strong>Mån &amp; Tors, verkstad 14–17<br>Ti, Ons, Fre 09–17</div>
+    </div>
+    <div class="socials">
+      <a href="https://www.facebook.com/profile.php?id=100090999536161" aria-label="Facebook" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M14 9h3V6h-3a4 4 0 00-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2a1 1 0 011-1z" stroke="#EDEAdd" stroke-width="1.4" stroke-linejoin="round"/></svg></a>
+      <a href="https://www.instagram.com/joeys_cykelverkstad/" aria-label="Instagram" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#EDEAdd" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="#EDEAdd" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1" fill="#EDEAdd"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
