@@ -85,8 +85,8 @@
   .team-card .role{font-size:0.82rem; color:var(--green); font-weight:700; text-transform:uppercase; letter-spacing:0.03em; margin-bottom:12px;}
   .team-card p{color:var(--muted); font-size:0.92rem; margin:0;}
 
-  .mech-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
-  @media (max-width:900px){ .mech-grid{grid-template-columns:1fr;} }
+  .mech-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:20px;}
+  @media (max-width:640px){ .mech-grid{grid-template-columns:1fr;} }
   .mech-card{background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:26px 22px;}
   .mech-photo{width:64px; height:64px; border-radius:50%; overflow:hidden; background:var(--cream-2); margin-bottom:14px;}
   .mech-photo img{width:100%; height:100%; object-fit:cover;}
@@ -212,7 +212,7 @@
         <div class="mech-photo"><img src="victor.jpg" alt="Victor"></div>
         <h4>Victor</h4>
         <div class="mech-role">Mekaniker</div>
-        <p>Victor var den allra första som började jobba med mig, redan när vi körde runt med mobila cykelservicen. Han har alltid gott humör och jobbar hårt med positiv inställning – och lyckas ofta få med sig sina kompisar på att hänga med och jobba också. Han är lite av gängets inofficiella ledare: säger inte jättemycket till vardags, men när han väl säger något lyssnar alla. Börjar någon slacka är han först med ett "kom igen nu, sluta snacka, vi jobbar". Victor gör dessutom alltid det där lilla extra för våra kunder. Han går på gymnasiet vid sidan av jobbet.</p>
+        <p>Victor var den allra första som började jobba med mig, redan när vi körde runt med mobila cykelservicen. Han har alltid gott humör och jobbar hårt med positiv inställning – en riktig lagspelare som gärna får med sig sina kompisar på att hänga med och jobba också. Victor gör dessutom alltid det där lilla extra för våra kunder. Han går på gymnasiet vid sidan av jobbet.</p>
       </div>
       <div class="mech-card">
         <div class="mech-photo"><img src="hugo.jpg" alt="Hugo"></div>
@@ -226,9 +226,14 @@
         <div class="mech-role">Mekaniker</div>
         <p>Ruben är en väldigt nyfiken kille som lär sig snabbt. Han ifrågasätter gärna allt – varför funkar det på det här sättet, varför är det så – vilket gör honom till en riktigt bra mekaniker. Han tänker friare och mer utanför ramarna än vad jag själv gör; jag gör oftast som jag blivit lärd och tar gärna till mig nytt, men helst inom ramarna för det jag redan kan. Ruben ifrågasätter ramarna helt enkelt. Han går på gymnasiet vid sidan av jobbet.</p>
       </div>
+      <div class="mech-card">
+        <div class="mech-photo"><img src="jared.jpg" alt="Jared"></div>
+        <h4>Jared</h4>
+        <div class="mech-role">Adminansvarig</div>
+        <p>Jared skötte tidigare mycket av vår administration och hemsidesbygge, och hann även lära sig enklare mekanikjobb och lite om elcyklar på vägen. Numera pluggar han vidare på en annan ort, men han är fortfarande en del av gänget och hoppar gärna in och hjälper till när han är i stan.</p>
+      </div>
     </div>
     <p style="color:var(--muted); font-size:0.88rem; margin-top:20px;">Vi växer! Just nu utbildar vi ytterligare en mekaniker som snart kommer hjälpa till med både verkstad och mobil service.</p>
-    <p style="color:var(--muted); font-size:0.88rem; margin-top:12px;">Jared har tidigare skött mycket av vår administration, och hann få koll på enklare mekanikjobb samt enkla uppdateringar på elcyklar innan han flyttade till en annan ort för att plugga vidare. Vi ses tyvärr ganska lite av honom nu, men han hoppar in och hjälper till då och då – kanske ses vi till sommaren igen.</p>
   </div>
 </section>
 
