@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Om oss — Joey's Cykelverkstad</title>
+<meta name="description" content="Möt Joey och Jhuvy bakom Joey's Cykelverkstad i Knivsta. Över tolv år i branschen, från hobby till eget familjeföretag.">
+<link rel="canonical" href="https://www.joeyscykelverkstad.se/om-oss.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Om oss — Joey's Cykelverkstad">
+<meta property="og:description" content="Möt Joey och Jhuvy bakom Joey's Cykelverkstad i Knivsta. Över tolv år i branschen, från hobby till eget familjeföretag.">
+<meta property="og:url" content="https://www.joeyscykelverkstad.se/om-oss.html">
+<meta property="og:locale" content="sv_SE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1F3B2C;
+    --green-dark:#16291D;
+    --cream:#FAF6EC;
+    --cream-2:#F1EBDA;
+    --paper:#FFFFFF;
+    --line:#E4DDC8;
+    --muted:#655F4E;
+    --text:#22261F;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--cream); color:var(--text); font-family:'Inter',sans-serif; font-size:15.5px; line-height:1.55;}
+  h1,h2,h3,.display{font-family:'Fraunces',serif; margin:0;}
+  a{color:inherit;}
+  .wrap{max-width:1280px; margin:0 auto; padding:0 32px;}
+  @media (max-width:640px){ .wrap{padding:0 18px;} }
+  img{max-width:100%; display:block;}
+
+  header{background:var(--paper); border-bottom:1px solid var(--line);}
+  .navbar{display:flex; align-items:center; justify-content:space-between; padding:14px 0; gap:20px;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .badge{width:64px; height:64px; object-fit:contain;}
+  nav{display:flex; gap:26px; flex:1; justify-content:center;}
+  nav a{text-decoration:none; color:var(--text); font-size:0.86rem; font-weight:600; letter-spacing:0.03em; text-transform:uppercase;}
+  nav a.active{border-bottom:2px solid var(--green); padding-bottom:4px;}
+  .nav-cta{display:flex; align-items:center; gap:8px; background:var(--green); color:#fff; padding:12px 20px; border-radius:6px; text-decoration:none; font-weight:700; font-size:0.85rem; letter-spacing:0.03em;}
+  .hamburger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
+  .hamburger span{width:24px; height:2px; background:var(--text);}
+  @media (max-width:1000px){
+    nav{display:none;}
+    .hamburger{display:flex;}
+    .nav-cta span{display:none;}
+    .nav-cta{padding:12px 14px;}
+  }
+  .mobile-menu{display:none; position:fixed; inset:0; background:var(--paper); z-index:50; padding:20px 24px; overflow-y:auto;}
+  .mobile-menu.open{display:block;}
+  .mobile-menu-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:32px;}
+  .mobile-menu nav{display:flex; flex-direction:column; gap:0; justify-content:flex-start;}
+  .mobile-menu nav a{padding:16px 0; border-bottom:1px solid var(--line); font-size:1rem;}
+  .mobile-menu .nav-cta{display:flex; justify-content:center; margin-top:24px;}
+  .close-btn{background:none; border:none; font-size:1.6rem; line-height:1; cursor:pointer; color:var(--text);}
+
+  .page-hero{background:var(--green-dark); color:#fff; padding:56px 0 46px;}
+  .page-hero .eyebrow{display:inline-block; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:20px; padding:5px 14px; font-size:0.78rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:#C9C4AE; margin-bottom:16px;}
+  .page-hero h1{font-size:clamp(2rem,4vw,2.7rem); font-weight:700;}
+  .page-hero p{max-width:62ch; color:#C9C4AE; margin-top:14px; font-size:1.02rem;}
+
+  .section{padding:56px 0;}
+  .section.tight{padding-top:0;}
+
+  .story-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:start;}
+  @media (max-width:900px){ .story-grid{grid-template-columns:1fr;} }
+  .story-text h2{font-size:1.7rem; margin-bottom:18px;}
+  .story-text p{color:var(--muted); font-size:0.96rem; margin:0 0 16px;}
+  .story-photo{aspect-ratio:4/5; border-radius:10px; overflow:hidden; background:var(--cream-2);}
+  .story-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+
+  .stat-row{display:flex; gap:32px; margin-top:8px; margin-bottom:28px; flex-wrap:wrap;}
+  .stat{min-width:120px;}
+  .stat .num{font-family:'Fraunces',serif; font-size:2.1rem; font-weight:700; color:var(--green-dark); line-height:1;}
+  .stat .label{font-size:0.8rem; color:var(--muted); margin-top:4px;}
+
+  .team-card{background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:32px; display:grid; grid-template-columns:auto 1fr; gap:24px; align-items:start;}
+  @media (max-width:640px){ .team-card{grid-template-columns:1fr; text-align:left;} }
+  .team-photo{width:96px; height:96px; border-radius:50%; overflow:hidden; background:var(--cream-2); flex:none;}
+  .team-photo img{width:100%; height:100%; object-fit:cover;}
+  .team-card h3{font-size:1.25rem; margin-bottom:4px;}
+  .team-card .role{font-size:0.82rem; color:var(--green); font-weight:700; text-transform:uppercase; letter-spacing:0.03em; margin-bottom:12px;}
+  .team-card p{color:var(--muted); font-size:0.92rem; margin:0;}
+
+  .mech-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media (max-width:900px){ .mech-grid{grid-template-columns:1fr;} }
+  .mech-card{background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:26px 22px;}
+  .mech-photo{width:64px; height:64px; border-radius:50%; overflow:hidden; background:var(--cream-2); margin-bottom:14px;}
+  .mech-photo img{width:100%; height:100%; object-fit:cover;}
+  .mech-card h4{font-family:'Fraunces',serif; font-size:1.1rem; margin-bottom:2px;}
+  .mech-role{font-size:0.78rem; color:var(--green); font-weight:700; text-transform:uppercase; letter-spacing:0.03em; margin-bottom:10px;}
+  .mech-card p{color:var(--muted); font-size:0.88rem; margin:0;}
+
+  .mission-banner{background:var(--green-dark); color:#EDEAdd; border-radius:12px; padding:36px 32px; text-align:center;}
+  .mission-banner h3{color:#fff; font-size:1.4rem; margin-bottom:12px;}
+  .mission-banner p{max-width:60ch; margin:0 auto; color:#C9C4AE; font-size:0.95rem;}
+
+  .cta-row{display:flex; gap:14px; justify-content:center; margin-top:24px; flex-wrap:wrap;}
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:9px; padding:13px 22px; border-radius:6px; text-decoration:none; font-weight:700; font-size:0.87rem; border:none; cursor:pointer;}
+  .btn-primary{background:var(--green); color:#fff;}
+  .btn-outline-white{background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,0.5);}
+
+  footer{background:var(--green-dark); color:#C9C4AE; padding:34px 0;}
+  .foot-grid{display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px; align-items:flex-start;}
+  .foot-item{display:flex; gap:10px; font-size:0.86rem; min-width:190px;}
+  .foot-item svg{flex:none; width:17px; height:17px; margin-top:2px; color:#8FA593;}
+  .foot-item strong{display:block; color:#fff; font-size:0.86rem;}
+  .socials{display:flex; gap:12px;}
+  .socials a{width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap navbar">
+    <div class="brand">
+      <img class="badge" src="logo.png" alt="Joey's Cykelverkstad">
+    </div>
+    <nav>
+      <a href="index.html">Hem</a>
+      <a href="prislista.html">Tjänster &amp; priser</a>
+      <a href="boka.html#mobil">Mobil service</a>
+      <a href="index.html#kontakt">Företag &amp; kommun</a>
+      <a class="active" href="om-oss.html">Om oss</a>
+      <a href="boka.html#viktigt">FAQ</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
+    <a class="nav-cta" href="boka.html">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#fff" stroke-width="2"/><path d="M3 10H21M8 3V7M16 3V7" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>Boka tid</span>
+    </a>
+    <button class="hamburger" aria-label="Öppna meny" onclick="document.getElementById('mobileMenu').classList.add('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-top">
+    <img class="badge" src="logo.png" alt="Joey's Cykelverkstad" style="width:48px; height:48px;">
+    <button class="close-btn" aria-label="Stäng meny" onclick="document.getElementById('mobileMenu').classList.remove('open')">&times;</button>
+  </div>
+  <nav>
+    <a href="index.html">Hem</a>
+    <a href="prislista.html">Tjänster &amp; priser</a>
+    <a href="boka.html#mobil">Mobil service</a>
+    <a href="index.html#kontakt">Företag &amp; kommun</a>
+    <a href="om-oss.html">Om oss</a>
+    <a href="boka.html#viktigt">FAQ</a>
+    <a href="index.html#kontakt">Kontakt</a>
+  </nav>
+  <a class="nav-cta" href="boka.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#fff" stroke-width="2"/><path d="M3 10H21M8 3V7M16 3V7" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Boka tid</span>
+  </a>
+</div>
+
+<div class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow">Familjeföretag i Knivsta</span>
+    <h1>Om oss</h1>
+    <p>Joey's Cykelverkstad drivs av Joey och Jhuvy Mercurio. Efter över tolv år i branschen är cyklar fortfarande vår grej – och det märks i varje jobb vi gör.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="story-text">
+        <div class="stat-row">
+          <div class="stat"><div class="num">12+</div><div class="label">år i branschen</div></div>
+          <div class="stat"><div class="num">2023</div><div class="label">eget företag</div></div>
+          <div class="stat"><div class="num">100%</div><div class="label">passion för cyklar</div></div>
+        </div>
+        <h2>Från hobby till eget företag</h2>
+        <p>Mitt intresse för cyklar och cykelreparationer började egentligen som en hobby. Jag hade grundläggande koll på cykelmekanik, men det var när jag insåg vad professionell service faktiskt kostade som jag bestämde mig för att lära mig laga min egen cykel.</p>
+        <p>Det ledde vidare till att jag reparerade, anpassade och målade om cyklar åt vänner för en billig peng – tills det till slut blev ett jobb på en av traktens äldsta cykelbutiker. Jag fick lära mig av en mentor under fem år, och fortsatte sedan ytterligare två år när butiken bytte ägare. Därefter följde några år som butikschef på olika håll, tills en alltför lång pendling började ta för mycket tid från familjen.</p>
+        <p>En kort period skickades jag till Sigtuna, och det var där jag för första gången såg hur uppskattad mobil cykelservice var bland kunderna – något jag tog fasta på. Tyvärr hade den arbetsplatsen inte råd att ha kvar mig, och det blev till slut droppen som fick mig och min fru Jhuvy att bestämma oss för att satsa på eget.</p>
+        <p>Vi startade i ett litet garage i mars 2023, och redan i september samma år hade vi flyttat in i vår egen verkstad – bara en kort promenad från hemmet.</p>
+        <p>Idag, efter över tolv år i branschen totalt, driver vi Joey's Cykelverkstad tillsammans i hjärtat av Knivsta. Vi är otroligt tacksamma för allt förtroende ni i Knivsta har visat oss längs vägen.</p>
+      </div>
+      <div class="story-photo">
+        <img src="butik-exterior.jpg" alt="Joey's Cykelverkstad i Knivsta">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <div class="team-card">
+      <div class="team-photo">
+        <img src="jhuvy.jpg" alt="Jhuvy Mercurio">
+      </div>
+      <div>
+        <h3>Träffa Jhuvy</h3>
+        <div class="role">Administration &amp; kundkontakt</div>
+        <p>Jhuvy är en lika viktig del av verkstaden som jag är, fast oftast bakom kulisserna. Hon sköter pappersarbete, ekonomi och mycket av kundkommunikationen – håller koll på bokningar och ser till att vi svarar snabbt när ni hör av er. Utan henne hade verksamheten helt enkelt inte rullat på lika smidigt som den gör.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <h2 style="font-size:1.5rem; margin-bottom:24px;">Vårt team</h2>
+    <div class="mech-grid">
+      <div class="mech-card">
+        <div class="mech-photo"><img src="victor.jpg" alt="Victor"></div>
+        <h4>Victor</h4>
+        <div class="mech-role">Mekaniker</div>
+        <p>Victor var den allra första som började jobba med mig, redan när vi körde runt med mobila cykelservicen. Han har alltid gott humör och jobbar hårt med positiv inställning – och lyckas ofta få med sig sina kompisar på att hänga med och jobba också. Han är lite av gängets inofficiella ledare: säger inte jättemycket till vardags, men när han väl säger något lyssnar alla. Börjar någon slacka är han först med ett "kom igen nu, sluta snacka, vi jobbar". Victor gör dessutom alltid det där lilla extra för våra kunder. Han går på gymnasiet vid sidan av jobbet.</p>
+      </div>
+      <div class="mech-card">
+        <div class="mech-photo"><img src="hugo.jpg" alt="Hugo"></div>
+        <h4>Hugo</h4>
+        <div class="mech-role">Mekaniker</div>
+        <p>Hugo är en glad typ som gärna har musik på i verkstaden, precis som de flesta av oss. Han gillar att meka med cyklar och är extra intresserad av äldre cyklar, särskilt fixiecyklar. På fritiden kör han gärna mountainbike, och när vintersäsongen kommer byter han hjul mot skidor och åker gärna utför. Han går på gymnasiet vid sidan av jobbet.</p>
+      </div>
+      <div class="mech-card">
+        <div class="mech-photo"><img src="ruben.jpg" alt="Ruben"></div>
+        <h4>Ruben</h4>
+        <div class="mech-role">Mekaniker</div>
+        <p>Ruben är en väldigt nyfiken kille som lär sig snabbt. Han ifrågasätter gärna allt – varför funkar det på det här sättet, varför är det så – vilket gör honom till en riktigt bra mekaniker. Han tänker friare och mer utanför ramarna än vad jag själv gör; jag gör oftast som jag blivit lärd och tar gärna till mig nytt, men helst inom ramarna för det jag redan kan. Ruben ifrågasätter ramarna helt enkelt. Han går på gymnasiet vid sidan av jobbet.</p>
+      </div>
+    </div>
+    <p style="color:var(--muted); font-size:0.88rem; margin-top:20px;">Vi växer! Just nu utbildar vi ytterligare en mekaniker som snart kommer hjälpa till med både verkstad och mobil service.</p>
+    <p style="color:var(--muted); font-size:0.88rem; margin-top:12px;">Jared har tidigare skött mycket av vår administration, och hann få koll på enklare mekanikjobb samt enkla uppdateringar på elcyklar innan han flyttade till en annan ort för att plugga vidare. Vi ses tyvärr ganska lite av honom nu, men han hoppar in och hjälper till då och då – kanske ses vi till sommaren igen.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="mission-banner">
+      <h3>Vårt uppdrag</h3>
+      <p>Snabb, personlig och prisvärd cykelservice – utan onödiga kostnader. Vi lagar det som faktiskt är trasigt, förklarar vad vi gör, och behandlar din cykel som vår egen.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="boka.html">Boka en tid →</a>
+        <a class="btn btn-outline-white" href="index.html#kontakt">Kontakta oss</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="kontakt">
+  <div class="wrap foot-grid">
+    <div class="foot-item">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8 6 6 9 6 13a6 6 0 0012 0c0-4-2-7-6-11z" stroke="currentColor" stroke-width="1.6"/></svg>
+      <div><strong>Joey's Cykelverkstad AB</strong>Häradsvägen 8A, 741 42 Knivsta</div>
+    </div>
+    <div class="foot-item">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.5 2.1L7.9 9.7a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.9.3 1.8.5 2.7.6a2 2 0 011.7 2z" stroke="currentColor" stroke-width="1.6"/></svg>
+      <div><strong>076-064 50 06</strong>(svarar oftast snabbt)</div>
+    </div>
+    <div class="foot-item">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M2 6l10 7L22 6" stroke="currentColor" stroke-width="1.6"/></svg>
+      <div><strong>joeyscykelverkstad@gmail.com</strong>Svar inom 24h</div>
+    </div>
+    <div class="foot-item">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <div><strong>Öppettider</strong>Mån &amp; Tors, verkstad 14–17<br>Ti, Ons, Fre 09–17</div>
+    </div>
+    <div class="socials">
+      <a href="https://www.facebook.com/profile.php?id=100090999536161" aria-label="Facebook" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M14 9h3V6h-3a4 4 0 00-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2a1 1 0 011-1z" stroke="#EDEAdd" stroke-width="1.4" stroke-linejoin="round"/></svg></a>
+      <a href="https://www.instagram.com/joeys_cykelverkstad/" aria-label="Instagram" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#EDEAdd" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="#EDEAdd" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1" fill="#EDEAdd"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
