@@ -9,7 +9,7 @@
 <meta property="og:type" content="business.business">
 <meta property="og:title" content="Joey's Cykelverkstad — Cykelservice i Knivsta">
 <meta property="og:description" content="Personlig cykelservice i Knivsta. Vi gör vårt bästa för varje kund – reparationer, elcykelservice och mobil cykelservice till Alsike, Uppsala, Sigtuna och Märsta.">
-<meta property="og:image" content="https://www.joeyscykelverkstad.se/butik-exterior.jpg">
+<meta property="og:image" content="https://www.joeyscykelverkstad.se/hero.jpg">
 <meta property="og:url" content="https://www.joeyscykelverkstad.se/">
 <meta property="og:locale" content="sv_SE">
 <meta name="twitter:card" content="summary_large_image">
@@ -18,7 +18,7 @@
   "@context": "https://schema.org",
   "@type": "BicycleStore",
   "name": "Joey's Cykelverkstad AB",
-  "image": "https://www.joeyscykelverkstad.se/butik-exterior.jpg",
+  "image": "https://www.joeyscykelverkstad.se/hero.jpg",
   "telephone": "+46760645006",
   "email": "jcv.knivsta@gmail.com",
   "address": {
@@ -83,10 +83,15 @@
   .close-btn{background:none; border:none; font-size:1.6rem; line-height:1; cursor:pointer; color:var(--text);}
 
   /* HERO */
-  .hero{position:relative; color:#fff; min-height:480px; display:flex; align-items:flex-end; overflow:hidden;}
-  .hero-bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 6%; z-index:0;}
-  .hero-overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(22,41,29,0.25) 0%, rgba(22,41,29,0.82) 90%); z-index:1;}
-  .hero-inner{position:relative; z-index:2; padding:64px 0 44px;}
+  .hero{position:relative; color:#fff; min-height:480px; display:flex; align-items:flex-end; overflow:hidden; background:var(--green-dark);}
+  .hero-bg-blur{display:none;}
+  .hero-bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 20%; z-index:1;}
+  .hero-overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(22,41,29,0.15) 0%, rgba(22,41,29,0.85) 92%); z-index:2;}
+  @media (max-width:768px){
+    .hero-bg-blur{display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center center; z-index:0; filter:blur(28px) brightness(0.55) saturate(1.1); transform:scale(1.15);}
+    .hero-bg{object-fit:contain; object-position:center center;}
+  }
+  .hero-inner{position:relative; z-index:3; padding:64px 0 44px;}
   .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
   .hero h1{font-size:clamp(2.3rem,5vw,3.4rem); line-height:1.05; font-weight:700;}
   .hero p.lead{max-width:44ch; color:#EDEAdd; font-size:1.05rem; margin-top:14px;}
@@ -213,7 +218,8 @@
 </div>
 
 <section class="hero" id="hem">
-  <img class="hero-bg" src="butik-exterior.jpg" alt="Joey's Cykelverkstad – butik och servicebil i Knivsta">
+  <img class="hero-bg-blur" src="hero.jpg" alt="" aria-hidden="true">
+  <img class="hero-bg" src="hero.jpg" alt="Joey's Cykelverkstad – butik och servicebil i Knivsta">
   <div class="hero-overlay"></div>
   <div class="wrap hero-inner">
     <h1>Cykelservice<br>i Knivsta</h1>
