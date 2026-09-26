@@ -71,6 +71,8 @@
   .story-text p{color:var(--muted); font-size:0.96rem; margin:0 0 16px;}
   .story-photo{aspect-ratio:4/5; border-radius:10px; overflow:hidden; background:var(--cream-2);}
   .story-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .story-photo-stack{display:flex; flex-direction:column; gap:20px;}
+  .story-photo-stack .story-photo{aspect-ratio:4/3;}
 
   .stat-row{display:flex; gap:32px; margin-top:8px; margin-bottom:28px; flex-wrap:wrap;}
   .stat{min-width:120px;}
@@ -182,8 +184,13 @@
         <p>Vi startade i ett litet garage i mars 2023, och redan i september samma år hade vi flyttat in i vår egen verkstad – bara en kort promenad från hemmet.</p>
         <p>Idag, efter över tolv år i branschen totalt, driver vi Joey's Cykelverkstad tillsammans i hjärtat av Knivsta. Vi är otroligt tacksamma för allt förtroende ni i Knivsta har visat oss längs vägen.</p>
       </div>
-      <div class="story-photo">
-        <img src="butik-exterior.jpg" alt="Joey's Cykelverkstad i Knivsta">
+      <div class="story-photo-stack">
+        <div class="story-photo">
+          <img src="butik-exterior.jpg" alt="Joey's Cykelverkstad i Knivsta">
+        </div>
+        <div class="story-photo">
+          <img src="joey.jpg" alt="Joey Mercurio utanför verkstaden">
+        </div>
       </div>
     </div>
   </div>
@@ -230,10 +237,15 @@
         <div class="mech-photo"><img src="jared.jpg" alt="Jared"></div>
         <h4>Jared</h4>
         <div class="mech-role">Adminansvarig</div>
-        <p>Jared skötte tidigare mycket av vår administration och hemsidesbygge, och hann även lära sig enklare mekanikjobb och lite om elcyklar på vägen. Numera pluggar han vidare på en annan ort, men han är fortfarande en del av gänget och hoppar gärna in och hjälper till när han är i stan.</p>
+        <p>Jared skötte tidigare mycket av vår administration, bland annat genom att modifiera och försvenska vår första hemsida med hjälp av AI. Han hann även lära sig enklare mekanikjobb och lite om elcyklar på vägen. Numera pluggar han vidare på en annan ort, men han är fortfarande en del av gänget och hoppar gärna in och hjälper till när han är i stan.</p>
+      </div>
+      <div class="mech-card">
+        <div class="mech-photo"><img src="simon.jpg" alt="Simon"></div>
+        <h4>Simon</h4>
+        <div class="mech-role">Lärling – mobil cykelservice</div>
+        <p>Simon är vår nyaste medlem i gänget och utbildar sig just nu till mekaniker hos oss. Framöver är det han som kommer köra vår mobila cykelservice ute hos er.</p>
       </div>
     </div>
-    <p style="color:var(--muted); font-size:0.88rem; margin-top:20px;">Vi växer! Just nu utbildar vi ytterligare en mekaniker som snart kommer hjälpa till med både verkstad och mobil service.</p>
   </div>
 </section>
 
@@ -241,7 +253,7 @@
   <div class="wrap">
     <div class="mission-banner">
       <h3>Vårt uppdrag</h3>
-      <p>Snabb, personlig och prisvärd cykelservice – utan onödiga kostnader. Vi lagar det som faktiskt är trasigt, förklarar vad vi gör, och behandlar din cykel som vår egen.</p>
+      <p>Vi gör det så snabbt vi möjligen kan och gör vårt bästa för att ni ska bli så nöjda med cykeln som möjligt – utan onödiga kostnader. Vi lagar det som faktiskt är trasigt, förklarar vad vi gör, och behandlar din cykel som vår egen.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="boka.html">Boka en tid →</a>
         <a class="btn btn-outline-white" href="index.html#kontakt">Kontakta oss</a>
@@ -258,7 +270,7 @@
     </div>
     <div class="foot-item">
       <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.5 2.1L7.9 9.7a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.9.3 1.8.5 2.7.6a2 2 0 011.7 2z" stroke="currentColor" stroke-width="1.6"/></svg>
-      <div><strong>076-064 50 06</strong>(svarar oftast snabbt)</div>
+      <div><strong>076-064 50 06</strong>(vi svarar så snabbt vi kan)</div>
     </div>
     <div class="foot-item">
       <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M2 6l10 7L22 6" stroke="currentColor" stroke-width="1.6"/></svg>
@@ -266,7 +278,7 @@
     </div>
     <div class="foot-item">
       <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      <div><strong>Öppettider</strong>Mån &amp; Tors, verkstad 14–17<br>Ti, Ons, Fre 09–17</div>
+      <div><strong>Öppettider</strong>Verkstad: mån–fre 09–17<br>Mobil service: mån–fre 09–14 (bokning krävs)</div>
     </div>
     <div class="socials">
       <a href="https://www.facebook.com/profile.php?id=100090999536161" aria-label="Facebook" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M14 9h3V6h-3a4 4 0 00-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2a1 1 0 011-1z" stroke="#EDEAdd" stroke-width="1.4" stroke-linejoin="round"/></svg></a>
