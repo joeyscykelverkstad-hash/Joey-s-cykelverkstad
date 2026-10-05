@@ -437,5 +437,77 @@
   <div class="wrap foot-bottom"><a href="byggd-av-joey.html" style="color:inherit; text-decoration:none;">Byggd av Joey Mercurio</a></div>
 </footer>
 
+
+<!-- Höstkampanj (popup) -->
+<!-- ===== HÖSTKAMPANJ: klistra in precis före </body> på index.html ===== -->
+<!-- Kräver att bilden hostkampanj.jpg ligger i samma mapp som index.html -->
+<style>
+  .hk-fab{position:fixed;right:16px;bottom:16px;z-index:900;display:flex;align-items:center;gap:8px;
+    background:#e8590c;color:#fff;border:0;border-radius:999px;padding:12px 18px;font:600 15px/1 Inter,system-ui,sans-serif;
+    box-shadow:0 6px 18px rgba(0,0,0,.25);cursor:pointer}
+  .hk-fab:hover{background:#d24f08}
+  .hk-fab:focus-visible,.hk-close:focus-visible,.hk-btn:focus-visible{outline:3px solid #ffd43b;outline-offset:2px}
+  .hk-overlay{position:fixed;inset:0;z-index:1000;background:rgba(15,25,18,.62);display:none;
+    align-items:center;justify-content:center;padding:16px}
+  .hk-overlay.hk-open{display:flex}
+  .hk-modal:focus{outline:none}
+  .hk-modal{position:relative;background:var(--cream,#faf6ea);border-radius:18px;max-width:560px;width:100%;
+    max-height:calc(100vh - 32px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+  .hk-scroll{overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .hk-scroll img{display:block;width:100%;height:auto}
+  .hk-datum{margin:0;padding:10px 12px 0;text-align:center;font:700 15px/1.3 Inter,system-ui,sans-serif;color:var(--green-dark,#10301f);background:var(--cream,#faf6ea)}
+  .hk-actions{display:flex;gap:10px;padding:12px;background:var(--cream,#faf6ea);border-top:1px solid rgba(0,0,0,.08)}
+  .hk-btn{flex:1;text-align:center;text-decoration:none;font:700 15px/1.2 Inter,system-ui,sans-serif;
+    padding:14px 10px;border-radius:12px}
+  .hk-btn-mobil{background:#e8590c;color:#fff}
+  .hk-btn-verk{background:var(--green-dark,#10301f);color:#fff}
+  .hk-close{position:absolute;top:10px;right:10px;z-index:2;width:38px;height:38px;border-radius:50%;border:0;
+    background:rgba(16,48,31,.88);color:#fff;font-size:22px;line-height:1;cursor:pointer}
+  @media (max-width:420px){.hk-actions{flex-direction:column}}
+</style>
+
+<button type="button" class="hk-fab" id="hkFab" aria-haspopup="dialog">🍂 Höstkampanj</button>
+
+<div class="hk-overlay" id="hkOverlay" role="dialog" aria-modal="true" aria-label="Höstkampanj: Mobil Premium Höstcheck 599 kr">
+  <div class="hk-modal" id="hkModal" tabindex="-1">
+    <button type="button" class="hk-close" id="hkClose" aria-label="Stäng">×</button>
+    <div class="hk-scroll">
+      <img src="hostkampanj.jpg" width="1000" height="1200"
+           alt="Höstkampanj: Mobil Premium Höstcheck, vi kommer till dig, 599 kr per cykel. Hämtning och lämning från 250 kr. Verkstadsservice efter skick. Gäller fram till 15 november.">
+    </div>
+    <p class="hk-datum">Gäller fram till 15 november</p>
+    <div class="hk-actions">
+      <a class="hk-btn hk-btn-mobil" href="boka.html#mobil">Boka mobil höstcheck</a>
+      <a class="hk-btn hk-btn-verk" href="boka.html">Boka verkstadstid</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  // Sätt ett slutdatum (ÅÅÅÅ-MM-DD) om kampanjen ska försvinna automatiskt, annars lämna tomt.
+  var SLUTDATUM = "2026-11-15";
+  if (SLUTDATUM && new Date() > new Date(SLUTDATUM + "T23:59:59")) {
+    var f = document.getElementById("hkFab"); if (f) f.remove(); return;
+  }
+  var overlay = document.getElementById("hkOverlay");
+  var fab = document.getElementById("hkFab");
+  var closeBtn = document.getElementById("hkClose");
+  var KEY = "hk-hostkampanj-sedd";
+  function open() { overlay.classList.add("hk-open"); document.getElementById("hkModal").focus(); }
+  function close(viaKey) {
+    overlay.classList.remove("hk-open"); if (viaKey === true) fab.focus();
+    try { sessionStorage.setItem(KEY, "1"); } catch (e) {}
+  }
+  fab.addEventListener("click", open);
+  closeBtn.addEventListener("click", function () { close(); });
+  overlay.addEventListener("click", function (e) { if (e.target === overlay) close(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && overlay.classList.contains("hk-open")) close(true); });
+  // Visas automatiskt en gång per besök (efter 1,2 s); knappen hjälper annars.
+  var seen = false; try { seen = sessionStorage.getItem(KEY) === "1"; } catch (e) {}
+  if (!seen) setTimeout(open, 1200);
+})();
+</script>
+<!-- ===== SLUT HÖSTKAMPANJ ===== -->
 </body>
 </html>
