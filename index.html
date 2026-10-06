@@ -544,7 +544,7 @@
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && overlay.classList.contains("hk-open")) close(true); });
   // Visas automatiskt en gång per besök (efter 1,2 s); knappen hjälper annars.
   var seen = false; try { seen = sessionStorage.getItem(KEY) === "1"; } catch (e) {}
-  if (!seen) setTimeout(open, 1200);
+  // Automatisk popup avstängd – kampanjen öppnas via bannern eller knappen.
 })();
 </script>
 <!-- ===== SLUT HÖSTKAMPANJ ===== -->
